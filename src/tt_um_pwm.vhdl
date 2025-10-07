@@ -4,7 +4,7 @@ use IEEE.numeric_std.all;
 
 entity tt_um_pwm is
 	port (
-    	clk_i       : in std_ulogic;              -- Clock input
+    	clk       : in std_ulogic;              -- Clock input
     	res_ni      : in std_ulogic;              -- Reset (active-low)
 	set_thres_i : in unsigned(7 downto 0);   -- Asynchronous Set threshold
 	clr_thres_i : in unsigned(7 downto 0);   -- Asynchronous Clear threshold
@@ -24,13 +24,13 @@ architecture rtl of tt_um_pwm is
 begin
 
 	-- Synchronize inputs to the clock domain
-	sync_proc : process (clk_i, res_ni) is
+	sync_proc : process (clk, res_ni) is
 	begin
 		if res_ni = '0' then
 			set_thres_sync <= (others => '0');
 			clr_thres_sync <= (others => '0');
 			reload_sync    <= (others => '0');
-		elsif rising_edge(clk_i) then
+		elsif rising_edge(clk) then
 			set_thres_sync <= set_thres_i;
 			clr_thres_sync <= clr_thres_i;
 			reload_sync    <= reload_i;
@@ -38,11 +38,11 @@ begin
 	end process sync_proc;
 
 	-- Synchronous counter process
-	cnt_proc : process (clk_i, res_ni) is
+	cnt_proc : process (clk, res_ni) is
 	begin
 		if res_ni = '0' then
 			cnt <= (others => '0'); -- Reset counter
-		elsif rising_edge(clk_i) then
+		elsif rising_edge(clk) then
 			if cnt = reload_sync then
 				cnt <= (others => '0'); -- Reload counter synchronously
 			else
@@ -52,11 +52,11 @@ begin
 	end process cnt_proc;
 
 	-- Set/Reset PWM output
-	pwm_proc : process (clk_i, res_ni) is
+	pwm_proc : process (clk, res_ni) is
 	begin
 		if res_ni = '0' then
 			pwm_o <= '0'; -- Reset PWM output
-		elsif rising_edge(clk_i) then
+		elsif rising_edge(clk) then
 			if cnt = clr_thres_sync then
 				pwm_o <= '0'; -- Clear PWM output
 			elsif cnt = set_thres_sync then
