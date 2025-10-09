@@ -13,7 +13,7 @@ entity tt_um_PROJECT is
         clk     : in  std_logic;                     -- Clock
         rst_n   : in  std_logic                      -- Active-low reset
     );
-end entity tt_um_example;
+end entity tt_um_PROJECT;
 
 architecture rtl of tt_um_PROJECT is
     -- Internal connections to PWM
