@@ -13,7 +13,7 @@ entity pwm is
 	);
 end entity pwm;
 
-architecture rtl of tt_um_pwm is
+architecture rtl of pwm is
 	-- Counter signal
 	signal cnt : unsigned(7 downto 0) := (others => '0');
 
