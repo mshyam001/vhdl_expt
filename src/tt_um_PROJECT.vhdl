@@ -36,7 +36,7 @@ begin
     ----------------------------------------------------------------
     -- PWM instance
     ----------------------------------------------------------------
-    u_pwm : entity work.tt_um_pwm
+    u_pwm : entity tt_um_pwm
         port map (
             clk         => clk,
             res_ni      => rst_n,
