@@ -15,7 +15,7 @@ entity tt_um_vhdl_pwm_top is
     );
 end entity tt_um_vhdl_pwm_top;
 
-architecture rtl of tt_um_PROJECT is
+architecture rtl of tt_um_vhdl_pwm_top is
     -- Internal connections to PWM
     signal set_thres_s : unsigned(7 downto 0);
     signal clr_thres_s : unsigned(7 downto 0);
