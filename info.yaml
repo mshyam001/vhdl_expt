@@ -21,7 +21,7 @@ project:
   #          the shuttle and VHDL support may be dropped for future shuttles if we see low usage.
   source_files:
     - "pwm.vhdl"
-    - "PROJECT.vhdl"
+    - "tt_um_PROJECT.vhdl"
 
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
