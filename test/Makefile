@@ -3,15 +3,16 @@
 
 # defaults
 SIM ?= icarus
-TOPLEVEL_LANG ?= vhdl
+TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
-PROJECT_SOURCES = generated/tt_um_PROJECT.vhdl
+PROJECT_SOURCES = generated/tt_um_vhdl_pwm_top.v generated/pwm.v
 
 ifneq ($(GATES),yes)
 
 # RTL simulation:
 SIM_BUILD				= sim_build/rtl
-VHDL_SOURCES += $(addprefix $(SRC_DIR)/,$(PROJECT_SOURCES))
+VERILOG_SOURCES += $(addprefix $(SRC_DIR)/,$(PROJECT_SOURCES))
+COMPILE_ARGS 		+= -I$(SRC_DIR)
 
 else
 
