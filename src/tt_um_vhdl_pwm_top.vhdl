@@ -16,6 +16,18 @@ entity tt_um_vhdl_pwm_top is
 end entity tt_um_vhdl_pwm_top;
 
 architecture rtl of tt_um_vhdl_pwm_top is
+
+    component pwm is
+        Port (
+            clk         : in std_ulogic;             -- Clock input
+    	    res_ni      : in std_ulogic;             -- Reset (active-low)
+	        set_thres_i : in unsigned(7 downto 0);   -- Asynchronous Set threshold
+	        clr_thres_i : in unsigned(7 downto 0);   -- Asynchronous Clear threshold
+	        reload_i    : in unsigned(7 downto 0);   -- Asynchronous Reload value
+            pwm_o       : out std_ulogic             -- PWM output
+        );
+    end component;
+    
     -- Internal connections to PWM
     signal set_thres_s : unsigned(7 downto 0);
     signal clr_thres_s : unsigned(7 downto 0);
