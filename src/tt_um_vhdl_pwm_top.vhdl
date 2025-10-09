@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity tt_um_PROJECT is
+entity tt_um_vhdl_pwm_top is
     port (
         ui_in   : in  std_logic_vector(7 downto 0);  -- Dedicated inputs
         uo_out  : out std_logic_vector(7 downto 0);  -- Dedicated outputs
@@ -13,7 +13,7 @@ entity tt_um_PROJECT is
         clk     : in  std_logic;                     -- Clock
         rst_n   : in  std_logic                      -- Active-low reset
     );
-end entity tt_um_PROJECT;
+end entity tt_um_vhdl_pwm_top;
 
 architecture rtl of tt_um_PROJECT is
     -- Internal connections to PWM
@@ -36,7 +36,7 @@ begin
     ----------------------------------------------------------------
     -- PWM instance
     ----------------------------------------------------------------
-    u_pwm : entity tt_um_pwm
+    u_pwm : entity pwm
         port map (
             clk         => clk,
             res_ni      => rst_n,
