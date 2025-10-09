@@ -3,9 +3,9 @@
 
 # defaults
 SIM ?= icarus
-TOPLEVEL_LANG ?= verilog
+TOPLEVEL_LANG ?= vhdl
 SRC_DIR = $(PWD)/../src
-PROJECT_SOURCES = generated/project.v
+PROJECT_SOURCES = generated/tt_um_PROJECT.vhdl
 
 ifneq ($(GATES),yes)
 
