@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity pwm is
+entity tt_um_pwm is
 	port (
     	clk       : in std_ulogic;              -- Clock input
     	res_ni      : in std_ulogic;              -- Reset (active-low)
@@ -11,9 +11,9 @@ entity pwm is
 	reload_i    : in unsigned(7 downto 0);   -- Asynchronous Reload value
         pwm_o       : out std_ulogic             -- PWM output
 	);
-end entity pwm;
+end entity tt_um_pwm;
 
-architecture rtl of pwm is
+architecture rtl of tt_um_pwm is
 	-- Counter signal
 	signal cnt : unsigned(7 downto 0) := (others => '0');
 
