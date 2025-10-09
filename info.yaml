@@ -20,7 +20,6 @@ project:
   # WARNING: VHDL support in Tiny Tapeout is experimental. The template may get changes during
   #          the shuttle and VHDL support may be dropped for future shuttles if we see low usage.
   source_files:
-    - "pwm.vhdl"
     - "tt_um_PROJECT.vhdl"
     - "pwm.vhdl"
 
